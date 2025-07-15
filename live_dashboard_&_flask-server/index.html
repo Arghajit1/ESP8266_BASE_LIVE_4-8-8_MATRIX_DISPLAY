@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LED Matrix Display Controller</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>LED Matrix Display Controller</h1>
+        <h2>4 × 8×8 Matrix Display Interface</h2>
+        
+        <div class="matrix-visual">
+            <div class="matrix" id="matrix1"></div>
+            <div class="matrix" id="matrix2"></div>
+            <div class="matrix" id="matrix3"></div>
+            <div class="matrix" id="matrix4"></div>
+        </div>
+        
+        <div class="control-panel">
+            <div class="input-group">
+                <label for="message">Message</label>
+                <input type="text" id="message" placeholder="Enter text to display on the LED matrix..." maxlength="100" value="Hello World" />
+            </div>
+            
+            <div class="preset-buttons">
+                <button class="preset-btn" data-text="Hello World">Hello World</button>
+                <button class="preset-btn" data-text="Welcome!">Welcome!</button>
+                <!-- <button class="preset-btn" data-text="ESP8266 + MAX7219">ESP8266 + MAX7219</button> -->
+                <button class="preset-btn" data-text="IoT Project">IoT Project</button>
+                <button class="preset-btn" data-text="ELECTRONICS AND COMMUNICATION">ELECTRONICS AND COMMUNICATION</button>
+            </div>
+            
+            <div class="effects-row">
+                <div class="input-group">
+                    <label for="effect">Animation Effect</label>
+                    <select id="effect">
+                        <option value="scroll-left">Scroll Left</option>
+                        <option value="scroll-right">Scroll Right</option>
+                        <option value="scroll-up">Scroll Up</option>
+                        <option value="scroll-down">Scroll Down</option>
+                        <option value="fade">Fade</option>
+                        <option value="blink">Blink</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label for="speed">Speed</label>
+                    <input type="range" id="speed" min="200" max="800" value="200" step="10" />
+                    <div id="speed-value" class="speed-value">200 ms</div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="brightness">Brightness</label>
+                    <input type="range" id="brightness" min="0" max="15" value="7" />
+                </div>
+            </div>
+            
+            <div class="button-row">
+                <button id="sendBtn" class="btn btn-primary">Send to Display</button>
+                <button id="clearBtn" class="btn btn-outline">Clear Display</button>
+                <button id="startBtn" class="btn btn-primary">Start Animation</button>
+                <button id="stopBtn" class="btn btn-outline">Stop Animation</button>
+            </div>
+            
+            <div id="statusPanel" class="status-panel"></div>
+            <div id="connectionStatus" class="connection-status disconnected">Disconnected from server</div>
+        </div>
+        
+       <div class="input-group">
+    <label>Server Host</label>
+    <input type="text" id="serverHost" placeholder="e.g., localhost" value="localhost">
+</div>
+<div class="input-group">
+    <label>Port Number</label>
+    <input type="number" id="serverPort" placeholder="e.g., 5000" value="5000">
+</div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
